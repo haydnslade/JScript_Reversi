@@ -1,0 +1,114 @@
+table.gamegrid {
+	border-collapse: collapse;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.gamegrid td {
+	background-color: green;
+	border: 2px solid #000;
+	height: 50px;
+	width: 50px;
+}
+
+/* Alternate grid color scheme for assignment 2 */
+table.gamegrid td.altGameGrid {
+	background-color: peru;
+}
+
+.othello {
+	background-color: #191919;
+	color: white;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+}
+
+/* Used for the cell on the grid that is currently moused over, and a valid move for the current player. */
+#highlighted {
+	background-color: #339933;
+}
+
+.disc {
+	height: 50px;
+	width: 50px;
+	display: block;
+}
+
+.gameDescription {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1em;
+	background-color: #E6E6E6
+}
+
+.gameDesign {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 0.8em;
+	background-color: #E6E6E6;
+}
+
+#gameStatus {
+  display: none;
+}
+
+#gameHeader {
+	text-align: center;
+}
+
+#gameLink {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#userLogin {
+  text-align: center;
+}
+
+.loginInfo {
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+}
+
+.loginInfo span {
+  display: table-row;
+}
+
+.loginInfo label {
+  display: table-cell;
+}
+
+.loginInfo input {
+  display: table-cell;
+}
+
+table.highScores {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding-top: 25px;
+  padding-right: 50px;
+  padding-bottom: 25px;
+  padding-left: 50px;
+}
+
+table.highScores.posit {
+  text-align: center;
+  font-weight: bolder;
+}
+
+table.highScores.name {
+  text-align: left;
+}
+
+table.highScores.points {
+ text-align: left;
+}
+
+.finalScore {
+  display: block;
+  font-size: 1.5em;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}

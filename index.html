@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Othello/Reversi</title>
+	<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="gameDescription">
+	<div> <!-- This should probably ensure a center window inside the main window, that way it cordons off the description from the background -->
+		<h1 id="gameHeader">Othello</h1>
+		<h3 id="gameLink"><a href="othello-game.html" target="_blank">Play Othello!!!</a></h3>
+		
+    <h3><a href="documentation.html" target"_blank">Othello/Reversi Final Documentation</a></h3>
+		<h3>What is Othello?</h3>
+		<p>Othello is a strategy game based on an 8x8 game grid where players consecutively place discs to convert opposing discs, until all places are filled with the player having more discs winning.</p>
+		
+		<h3>Why Reversi/Othello?</h3>
+		<p>Reversi was supposedly created by one of two English men, while each claimed the other to be a fraud. The game did not see major success until the a version of the game was released in the 1970s by the Japanese game company Tsukuda Original registered as "Othello".</p>
+		<p><!-- Fixed to point to reversi rather than Othello the greek tragedy --><a href="http://en.wikipedia.org/wiki/Reversi" target="_blank">You can learn more about Reversi/Othello here.</a></p>
+		
+		<h2>How to play Othello</h2>
+		<p>Othello is played by two players, each taking turns and placing game pieces, called discs. Each disc must be placed so that it creates a new boundary (horizontal, diagonal, vertical) between another of the same player's discs. Each of the opposing player's owned discs now bounded by two of the current player's discs are converted to the current player. Each player continues placing discs in turns until all discs have been placed, the player that then owns the most discs is declared the winner.</p>
+		<ul>
+			<li>
+				The board begins with four total discs placed in the center four positions (two for each player.)
+				<br/>
+				<!-- Once the grid is complete use images using our grid -->
+				<!-- Used with permission from Wikimedia http://commons.wikimedia.org/wiki/File%3AReversi-01.png-->
+				<img src="http://upload.wikimedia.org/wikipedia/commons/9/93/Reversi-01.png" width="192" height="192" alt="Reversi/Othello board start"/>
+			</li>
+			<li>
+				The first player (black) now places a disc to create a boundary between the newly placed disc and an existing disc of the same player's. This then converts all opposing discs and they are 'flipped' over to belong to the current player.
+			</li>
+			<li>
+				The next player then repeats the process by placing another disc.
+			</li>
+			<li>
+				Each player continues placing pieces until all board positions have been filled or a player is unable to place a piece that converts any opposing pieces.
+			</li>
+			<li>
+				Once the game has ended the player with the most owned discs is declared the winner.
+			</li>
+		</ul>
+	</div>
+	<div class="gameDesign">
+		<h2>Preliminary Software Design</h2>
+		<p>As described above, Othello is a two player strategy game played on an 8x8 grid. The main components to the model deal with are the grid, pieces, overall game state, and player information.</p>
+		
+		<h3>Model</h3>
+		
+		<h4>Constants</h4>
+        <b>OTHELLO_CONST</b> = {
+		<b>gridSize = 8</b> the grid size, being gridSize x gridSize.
+		<br/>
+		<b>maxDiscs = gridSize x gridSize</b> the maximum number of playable discs.
+		<br/>
+		<b>numPlayers = 2</b> number of players.
+		<br/>
+		<b>playerOne = 1</b> player one enum.
+		<br/>
+		<b>playerTwo = 2</b> player two enum.
+		<br/>
+        <b>empty</b> empty enum.
+        <br/>
+        <b>playerOneStartPos</b> player one starting positions array.
+        <br/>
+        <b>playerTwoStartPos</b> player two starting positions array.
+        <br/>
+        }
+        <br/>
+		
+		<p>These objects will be used to control the state of the game.</p>
+		<p>
+			<b>Grid</b>
+			<br/>
+			The Grid will consist of the following attributes:
+			<br/>
+            <b>othelloGrid</b> = {
+			<ul>
+				<li>
+					<b>discGrid</b>: array that stores the discs in play, and which player they belong to.
+				</li>
+                <li>
+                    <b>initGrid()</b>
+                    <br/>
+                    Initializes the grid to a beginning state with player one and two start
+                </li>
+				<li>
+					<b>validPlay(player, x, y)</b>
+					<br/>
+					Returns if the grid location is a valid play for the specified player.
+				</li>
+				<li>
+					<b>executePlay(player, x, y)</b>
+					<br/>
+					Attempts to store a new piece at the specified grid location.
+				</li>
+                <li>
+                    <b>getPlayerAtPos(x, y)</b>
+                    <br/>
+                    Returns the player (or empty) at the specified coords.
+                </li>
+				<li>
+					<b>convertDiscs(player, x, y)</b>
+                    <br/>
+					Converts discs using the location presented and checks all locations that intersect with it to be owned by the player.
+				</li>
+				<li>
+					<b>countDiscs(player)</b>
+                    <br/>
+					Counts the number of discs for the specified player on the board.
+				</li>
+			</ul>
+            }
+            <br/>
+			
+			<b>Game</b>
+			The Game will consist of the following attributes:
+			<br/>
+            <b>othelloState</b> = {
+			<ul>
+				<li>
+					<b>discsRemaining</b>: integer of the number of remaining playable discs, before board is full.
+				</li>
+				<li>
+					<b>currentPlayer</b>: the current player, used to determine which piece to place.
+				</li>
+				<li>
+					<b>gameGrid</b>: Grid object that stores the state of the board.
+				</li>
+				<li>
+					<b>initializeGame()</b>
+					<br/>
+					Initializes the game, such as setting the correct starting pieces and choosing a player to start.
+				</li>
+				<li>
+                    <b>nextTurn()</b>
+                    <br/>
+                    Changes the active player for the next turn.
+                </li>
+			</ul>
+            }
+            <br/>
+            
+        <h4>Example Arrays/Objects</h4>
+            othelloGrid: {"discGrid": [[0,0,0,0,0,0,0,0], ...]}
+            <br/>
+            othelloState: {"discsRemaining": 58, "currentPlayer": 1}
+            <br/>
+            discGrid: [[0, ...], [0, ...], [0, 0, 1, 0, ...], [0, 0, 2, 1, 2, 0, ...], ...]
+		</p>
+		
+		<h3>Additional Information</h3>
+		<p>This list is not exhaustive and will change during development. This model should be considered a draft and is subject to change.</p>
+		<p>Additional objects are unlikely to be needed, but simplification may merit abstraction and introduce changes to this model.</p> 
+		
+	</div>
+    
+</body>
+</html>

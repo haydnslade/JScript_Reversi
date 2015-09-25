@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Othello Game - Play Othello</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="othello">
+	<div class="gameInfo">
+		<h2>Othello</h2>
+    <div id="gameStatus">
+		Current Player: <b><span id="currentPlayer"><span></b>
+		<br/>
+        Last Play: <b><span id="lastPlayMade"></span></b>
+        <br/>
+    </div>
+    <div id="userEntry"></div>
+    <div id="menuControls"></div>
+	</div>
+	<div id="gameDiv"></div>
+    <script src="jScript/othello-model.js"></script>
+	<script src="jScript/othello-grid.js"></script>
+</body>
+
+</html>

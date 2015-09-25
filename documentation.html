@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Othello/Reversi</title>
+	<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="gameDescription">
+  <div class="gameDesign">
+    <h1>Othello/Reversi</h1>
+    <p>The following sections provide a formal description of how the implementation of Othello/Reversi meets the requirements for the final project.</p>
+    
+    <h2>Game Grid utilizing CSS & Javascript</h2>
+    <p>All pages in this website are controlled via a single CSS file named style.css. It is located in the root project directory.</p>
+    <p>The game grid is created exclusively via Javascript functions as can be found in the jScript/othello-grid.js file. The main method that handles this is generateGameGrid().</p>
+    
+    <h2>User Input via text & buttons</h2>
+    <p>Once a new game is selected two text boxes are made available for the Player Names. The name entered will be stored and later used for High Scores as well as displaying whose turn it currently is. These text boxes are dynamically added and stored in a variable gameSessionInfo.</p>
+    
+    <h2>User input via mouse clicks</h2>
+    <p>To play the game each player must take turns placing a piece, which is done by mouse click event listeners on each table cell. As well as event listeners on all of the buttons.</p>
+    
+    <h2>Dynamic modification of HTML via innerHTML or DOM</h2>
+    <p>The game page is primarily designed via Javascript with only minimal scaffolding present in the base HTML page. Each button press will trigger a flow action that modifies the current content of the page.</p>
+    
+    <h2>Use of XMLHTTPRequest to load JSON data</h2>
+    <p>Upon the first activation of the High Scores button the default scores stored in a JSON file under data/defaultScores.json. This is done by making a local XMLHTTPRequest call, this of course prevents several browsers from adding default scores.</p>
+    
+    <h2>Incorporating HTML 5 localStorage</h2>
+    <p>All High Scores are stored in localStorage. This includes the defaults loaded above, as well as any new higher scores achieved during regular game play. The High Score page then reads the localStorage for the information to display.</p>
+    
+    <h2>Game Logic</h2>
+    <p>Hopefully this is fairly evident as the game would not function without this game logic. The primary functions are verifying that a click on a specific cell generates a validPlay (the placement will convert some pieces) as well as performing the actual execution of the play itself. All game logic is stored in the jScript/othello-model.js file, while calls are simply made from the othello-grid view portion. This of course makes a semi tight coupling between view and controller, but I did attempt to migrate larger pieces of the controller into separate functions, but further refactoring would of course improve this.</p>
+    <p>There is however at least one edge scenario that I know I did not solve for. If the player has no available moves, the game should end (or the turn should be handed over to the other player.) I would have to check the official rules to be sure, either case should be an easy solution to check all possible locations remaining and verify if at least one results in a validPlay() == true. My worry with this approach is that it may become computational expensive in some browsers in the beginning of the game.</p>
+  </div>
+</body>

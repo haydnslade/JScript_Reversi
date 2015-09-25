@@ -1,0 +1,19 @@
+{
+  "scores": [
+    {
+      "points": "630",
+      "name": "The Best Player Ever!",
+      "position": "1"
+    },
+    {
+      "points": "480",
+      "name": "So close to first",
+      "position": "2"
+    },
+    {
+      "points": "390",
+      "name": "I'll reach second soon",
+      "position": "3"
+    }
+  ]
+}

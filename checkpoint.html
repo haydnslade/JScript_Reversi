@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 4 Checkpoint</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body class="gameDescription">
+        <div class="gameDesign">
+            <h2>Game Logic Progress</h2>
+            <h3>Primary Components</h3>
+            <b>Game Grid</b>
+            <p>The game grid has been partially developed, the ability to add new game pieces has been completed
+                and the main items remaining to implement are the validation functions that ensure a piece placement is validation
+                as well as the ability to convert opposing player's pieces when a new piece is placed.
+            </p>
+            <b>Game State</b>
+            <p>The game state has been completed and currently keeps track of the current player. The only other item that may end up
+                being implemented in the state is the number of remaining discs.
+            </p>
+            <b>Game Session</b>
+            <p>The game session info is admittedly slapped together to work with the current input options. This should most likely be
+                moved to the model (as I am currently breaking the MVC model at the moment.)
+            </p>
+            <b>Other items</b>
+            <p>Perhaps not particularly part of the game logic, I think that my View and Controller are tied together pretty tightly.
+                I would like to spend more time trying to separate them. Eventually I would like to implement multiple color schemes as well.
+            </p>
+            <h2>Testing Game Logic</h2>
+            <b>Game Grid</b>
+            <p>The current functionality of the game grid can be tested by simply clicking empty squares on the game board.</p>
+            <b>Game State</b>
+            <p>When a new piece is placed on the board as above, the current player is modified.</p>
+            <b>Game Session</b>
+            <p>If you enter a new name for player one or two, the current player will accurately reflect that name.</p>
+        </div>
+    </body>
+</html>
